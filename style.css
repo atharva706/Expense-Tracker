@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #0f172a;
+}
+
+/* Main background */
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    color: white;
+
+    background:
+        radial-gradient(circle at top left, #1e3a8a 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #14532d 0%, transparent 35%),
+        #0f172a;
+
+    animation: fadeIn 0.8s ease;
+}
+
+/* Heading */
+
+.main-container h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #f8fafc;
+
+    letter-spacing: 1px;
+
+    animation: headingAnimation 0.8s ease;
+}
+
+/* Main Card */
+
+.container {
+    width: 500px;
+    min-height: 480px;
+
+    padding: 35px;
+
+    background: rgba(30, 41, 59, 0.9);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(12px);
+
+    animation: cardAnimation 0.8s ease;
+
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+/* Fields */
+
+.field {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    animation: fieldAnimation 0.6s ease;
+}
+
+.field label {
+    width: 110px;
+
+    color: #cbd5e1;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Inputs */
+
+.field input,
+.field select {
+    flex: 1;
+
+    height: 42px;
+
+    padding: 0 14px;
+
+    background: #0f172a;
+
+    color: #f8fafc;
+
+    border: 1px solid #334155;
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: all 0.3s ease;
+}
+
+.field input::placeholder {
+    color: #64748b;
+}
+
+/* Input hover */
+
+.field input:hover,
+.field select:hover {
+    border-color: #64748b;
+}
+
+/* Input focus */
+
+.field input:focus,
+.field select:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.15);
+
+    transform: translateY(-1px);
+}
+
+/* Dropdown */
+
+.field select {
+    cursor: pointer;
+}
+
+.field select option {
+    background: #0f172a;
+    color: white;
+}
+
+/* Add Expense Button */
+
+#btn {
+    width: 100%;
+    height: 45px;
+
+    margin-top: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #2563eb
+    );
+
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.3);
+
+    transition: all 0.3s ease;
+}
+
+#btn:hover {
+    transform: translateY(-3px);
+
+    background: linear-gradient(
+        135deg,
+        #60a5fa,
+        #3b82f6
+    );
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.45);
+}
+
+#btn:active {
+    transform: translateY(1px);
+
+    box-shadow:
+        0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+/* Expense List */
+
+ul {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Individual expense items */
+
+ul li {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    margin-bottom: 10px;
+
+    background: #0f172a;
+
+    color: #e2e8f0;
+
+    border: 1px solid #334155;
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+
+    transition: all 0.3s ease;
+
+    animation: expenseAppear 0.4s ease;
+}
+
+ul li:hover {
+    transform: translateX(5px);
+
+    border-color: #3b82f6;
+
+    background: #162033;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Expense div */
+
+.expense {
+    margin-top: 15px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* ========================= */
+/* Animations */
+/* ========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes headingAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fieldAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes expenseAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================= */
+/* Mobile Responsive */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+    .main-container h1 {
+        font-size: 32px;
+    }
+
+    .container {
+        width: 90%;
+        min-height: 450px;
+        padding: 25px;
+    }
+
+    .field {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .field label {
+        width: auto;
+    }
+
+    .field input,
+    .field select {
+        width: 100%;
+    }
+}
